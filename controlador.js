@@ -1,5 +1,10 @@
-let contraseña1 = prompt("Ingrese contraseña 1");
-let contraseña2 = prompt("Ingrese contraseña 2");
+export function ingresarContraseñas() {
+  let contraseña1 = prompt("Ingrese contraseña 1");
+  let contraseña2 = prompt("Ingrese contraseña 2");
+
+  contraseñasCoinciden(contraseña1, contraseña2);
+  contraseñasValidas(contraseña1, contraseña2);
+}
 
 function contraseñasCoinciden(contraseña1, contraseña2) {
   if (contraseña1 === contraseña2) {
