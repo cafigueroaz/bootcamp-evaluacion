@@ -1,7 +1,7 @@
 let contraseña1 = prompt("Ingrese contraseña 1");
 let contraseña2 = prompt("Ingrese contraseña 2");
 
-const contraseñasCoinciden = (contraseña1, contraseña2) => {
+function contraseñasCoinciden(contraseña1, contraseña2) {
   if (contraseña1 === contraseña2) {
     console.log("Las contraseñas coinciden");
     return true;
@@ -9,9 +9,9 @@ const contraseñasCoinciden = (contraseña1, contraseña2) => {
     console.log("Las contraseñas no coinciden");
     return false;
   }
-};
+}
 
-const contraseñasValidas = (contraseña1, contraseña2) => {
+function contraseñasValidas(contraseña1, contraseña2) {
   if (
     contraseña1.length < 8 ||
     contraseña2.length < 8 ||
@@ -23,4 +23,4 @@ const contraseñasValidas = (contraseña1, contraseña2) => {
     return false;
   }
   return true;
-};
+}
