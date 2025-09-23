@@ -1,13 +1,6 @@
-import express from "express";
-import { ingresarContraseñas } from "./controlador";
+import promptSync from "prompt-sync";
+const prompt = promptSync();
 
-const app = express();
-const PORT = 10000;
+import { iniciar } from "./controlador.js";
 
-app.use(express.json());
-
-app.listen(PORT, () => {
-  console.log(`Servidor eschuchando en http://localhost:${PORT}`);
-});
-
-ingresarContraseñas();
+iniciar(prompt);

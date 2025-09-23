@@ -1,31 +1,38 @@
-export function ingresarContraseñas() {
-  let contraseña1 = prompt("Ingrese contraseña 1");
-  let contraseña2 = prompt("Ingrese contraseña 2");
+function ingresarContraseñas(prompt) {
+  for (;;) {
+    const contraseña = prompt("Ingrese contraseña: ");
 
-  contraseñasCoinciden(contraseña1, contraseña2);
-  contraseñasValidas(contraseña1, contraseña2);
+    if (contraseña.length < 8) {
+      console.log("Debes ingresar una contraseña de al menos 8 caracteres.");
+      continue;
+    }
+
+    if (contraseña === contraseña.toLowerCase()) {
+      console.log(
+        "Debes ingresar una contraseña que contenga al menos una letra mayúscula."
+      );
+      continue;
+    }
+
+    if (!/\d/.test(contraseña)) {
+      console.log(
+        "Debes ingresar una contraseña que contenga al menos un número."
+      );
+      continue;
+    }
+
+    console.log("Contraseña guardada.");
+    return contraseña;
+  }
 }
 
-function contraseñasCoinciden(contraseña1, contraseña2) {
+export function iniciar(prompt) {
+  const contraseña1 = ingresarContraseñas(prompt);
+  const contraseña2 = ingresarContraseñas(prompt);
+
   if (contraseña1 === contraseña2) {
-    console.log("Las contraseñas coinciden");
-    return true;
+    console.log("Las contraseñas coinciden.");
   } else {
-    console.log("Las contraseñas no coinciden");
-    return false;
+    console.log("Las contraseñas no coinciden.");
   }
-}
-
-function contraseñasValidas(contraseña1, contraseña2) {
-  if (
-    contraseña1.length < 8 ||
-    contraseña2.length < 8 ||
-    contraseña1 !== contraseña2
-  ) {
-    console.log(
-      "Las contraseñas deben tener al menos 8 caracteres, deben tener al menos una letra mayúscula, una letra minúscula y un número"
-    );
-    return false;
-  }
-  return true;
 }
